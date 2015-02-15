@@ -28,11 +28,6 @@ namespace ChiFouMi
 
         private static Stack<string> t = new Stack<string>();
 
-        private static void Display()
-        {
-            Console.WriteLine(++cnt + "- " + t.ToArray()[cnt - 1]);
-        }
-
         private static bool Initialize()
         {
             t = new Stack<string>();
@@ -63,9 +58,9 @@ namespace ChiFouMi
             while (!Initialize())
             {
                 Console.WriteLine(_strTextIntro);
-                for (int i = 0, cnt = 0; i < t.Count; i++)
+                for (int i = 0; i < t.Count; i++)
                 {
-                    Display();
+                    Console.WriteLine((i + 1) + "- " + t.ToArray()[i]);
                 }
 
                 _intUs = (char)(Console.ReadLine()[0] - 48);
