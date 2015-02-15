@@ -86,11 +86,11 @@ namespace ChiFouMi
                     Console.WriteLine("Gagne!");
                 }
                     
-                else if (_intUs - 1 == _intUv % 2)
-                {
-                    Console.WriteLine("Pierre contre Feuille!");
-                    Console.WriteLine("Perdu!");
-                }
+                //else if (_intUs - 1 == _intUv % 2)
+                //{
+                //    Console.WriteLine("Pierre contre Feuille!");
+                //    Console.WriteLine("Perdu!");
+                //}
                 
                 else if (roxorMoMode != rmdi && _intUv == 3)
                 {
@@ -141,25 +141,6 @@ namespace ChiFouMi
                 {
                     Console.WriteLine("Ciseaux contre Ciseaux!");
                     Console.WriteLine("Egalite!");
-                }
-                else if (_intUs == 3 && _intUv == 4)
-                {
-                    Console.WriteLine("Ciseaux contre Ciseaux!");
-                    Console.WriteLine("Egalite!");
-                }
-                else if (_intUs == 3 && _intUv == 5)
-                {
-                    Console.WriteLine("Ciseaux contre Ciseaux!");
-                    Console.WriteLine("Egalite!");
-                }
-                else if (_intUs == 4 && _intUv == 4)
-                {
-                    Console.WriteLine("Ciseaux contre Ciseaux!");
-                    Console.WriteLine("Egalite!");
-                }
-                else if ("exit".Equals(_str))
-                {
-                    break;
                 }
                 else if (true)
                 {
