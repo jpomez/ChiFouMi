@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace ChiFouMi
 {
-    internal class Program
+    public class Program
     {
         public static int _a0;
 
@@ -38,7 +38,7 @@ namespace ChiFouMi
             return Console.ReadLine().StartsWith(str_end);
         }
 
-        private static void Main(string[] args)
+        public static void Main(string[] args)
         {
             _a0 = 0;
 
