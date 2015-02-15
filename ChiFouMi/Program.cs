@@ -85,12 +85,12 @@ namespace ChiFouMi
                     Console.WriteLine("Tu es un roxor contre Feuille");
                     Console.WriteLine("Gagne!");
                 }
-                    
-                //else if (_intUs - 1 == _intUv % 2)
-                //{
-                //    Console.WriteLine("Pierre contre Feuille!");
-                //    Console.WriteLine("Perdu!");
-                //}
+
+                else if (_intUs == 1 &&_intUv == 2)
+                {
+                    Console.WriteLine("Pierre contre Feuille!");
+                    Console.WriteLine("Perdu!");
+                }
                 
                 else if (roxorMoMode != rmdi && _intUv == 3)
                 {
