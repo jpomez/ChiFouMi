@@ -41,14 +41,14 @@ namespace ChiFouMi
             {
                 this.DisplayCommands();
 
-                int userCommand;
-                if (!int.TryParse(this.readLine(), out userCommand))
+                Move userCommand;
+                if (!Enum.TryParse(this.readLine(), out userCommand) || !Enum.IsDefined(typeof(Move), userCommand))
                 {
                     this.writeLine("Je sais pas");
                     continue;
                 }
 
-                this.writeLine(this.engine.Run(this.roxorMod, (Move)userCommand, (Move)this.r.Next(1, 3)));
+                this.writeLine(this.engine.Run(this.roxorMod, userCommand, (Move)this.r.Next(1, 4)));
             }
         }
 
