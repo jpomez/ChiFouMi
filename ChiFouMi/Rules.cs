@@ -31,7 +31,7 @@ namespace ChiFouMi
                 else if (userMove == Move.Ciseaux && iaMove == Move.Feuille) win = true;
             }
 
-            stringBuilder.AppendLine(win.HasValue ? win.Value ? "Gagne!" : "Perdu!" : "Egalite!");
+            stringBuilder.AppendLine(win.HasValue ? win.Value ? Resource.Gagne : Resource.Perdu : Resource.Egalite);
 
             return stringBuilder.ToString();
         }

@@ -70,6 +70,15 @@ namespace ChiFouMi {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Egalite!.
+        /// </summary>
+        internal static string Egalite {
+            get {
+                return ResourceManager.GetString("Egalite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
         internal static string EnterCommand {
@@ -97,6 +106,15 @@ namespace ChiFouMi {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Gagne!.
+        /// </summary>
+        internal static string Gagne {
+            get {
+                return ResourceManager.GetString("Gagne", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Taper sur la touche entrée pour commencer une partie, ou &apos;exit&apos; pour quitter..
         /// </summary>
         internal static string Instructions {
@@ -111,6 +129,15 @@ namespace ChiFouMi {
         internal static string Intro {
             get {
                 return ResourceManager.GetString("Intro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Perdu!.
+        /// </summary>
+        internal static string Perdu {
+            get {
+                return ResourceManager.GetString("Perdu", resourceCulture);
             }
         }
         

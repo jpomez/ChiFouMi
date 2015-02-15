@@ -13,7 +13,7 @@ namespace ChiFouMi.Test
         [Fact]
         public void WhenOnlyExitIsEnteredThenRulesAreCorrectlyDisplayed()
         {
-            using (var input = new CustomStringReader(new[] { "exit" }))
+            using (var input = new CustomStringReader(new[] { Commands.ExitCommand }))
             {
                 using (var output = new StringWriter())
                 {
@@ -29,7 +29,7 @@ Taper sur la touche entrée pour commencer une partie, ou 'exit' pour quitter.
         [Fact]
         public void WhenOnlyEnterIsPressedInRoxorModeThenRulesAreCorrectlyDisplayed()
         {
-            using (var input = new CustomStringReader(new[] { "exit" }))
+            using (var input = new CustomStringReader(new[] { Commands.ExitCommand }))
             {
                 using (var output = new StringWriter())
                 {
@@ -47,13 +47,13 @@ Taper sur la touche entrée pour commencer une partie, ou 'exit' pour quitter.
         {
             using (var input  = new CustomStringReader(new[]
                                                            {
-                                                               string.Empty, 
+                                                               Commands.EnterCommand, 
                                                                "1",
-                                                               string.Empty, 
+                                                               Commands.EnterCommand, 
                                                                "2",
-                                                               string.Empty, 
+                                                               Commands.EnterCommand, 
                                                                "3",
-                                                               "exit"
+                                                               Commands.ExitCommand
                                                            }))
             {
                 using (var output = new StringWriter())
@@ -96,11 +96,11 @@ exit
         {
             using (var input = new CustomStringReader(new[]
                                                            {
-                                                               string.Empty, 
+                                                               Commands.EnterCommand, 
                                                                "1",
-                                                               string.Empty, 
+                                                               Commands.EnterCommand, 
                                                                "2",
-                                                               string.Empty, 
+                                                               Commands.EnterCommand, 
                                                                "3",
                                                                "exit"
                                                            }))
@@ -132,6 +132,27 @@ exit
                     Check.That(input.ToString()).IsEqualTo(expectedInput);
                     Check.That(output.ToString()).Contains(expectedOutputPart1);
                     Check.That(output.ToString()).Contains(expectedOutputPart2);
+                }
+            }
+        }
+
+        [Fact]
+        public void WhenIncorrectMoveIsEnteredThenProgramOuputsAsExpected()
+        {
+            using (var input = new CustomStringReader(new[] { Commands.EnterCommand, "7", Commands.ExitCommand }))
+            {
+                using (var output = new StringWriter())
+                {
+                    var game = new ChiFouMi(input.ReadLine, output.WriteLine);
+                    game.Run(new[] { string.Empty });
+                    Check.That(output.ToString()).IsEqualTo(@"Bienvenue dans mon chifumi, ici c'est un appli de ROXXXXXXXXXXXXXXXOOR!
+Taper sur la touche entrée pour commencer une partie, ou 'exit' pour quitter.
+Veuillez choisir un signe:
+1- Pierre
+2- Feuille
+3- Ciseaux
+Je sais pas
+");
                 }
             }
         }

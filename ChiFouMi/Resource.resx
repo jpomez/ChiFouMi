@@ -144,4 +144,13 @@
   <data name="Roxor" xml:space="preserve">
     <value>roxor</value>
   </data>
+  <data name="Gagne" xml:space="preserve">
+    <value>Gagne!</value>
+  </data>
+  <data name="Perdu" xml:space="preserve">
+    <value>Perdu!</value>
+  </data>
+  <data name="Egalite" xml:space="preserve">
+    <value>Egalite!</value>
+  </data>
 </root>
