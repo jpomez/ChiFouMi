@@ -43,7 +43,7 @@ Taper sur la touche entrée pour commencer une partie, ou 'exit' pour quitter.
         }
 
         [Fact]
-        public void WhenAllCommandsAreEnteredThenExpectedAmountOfLinesAreDisplayed()
+        public void WhenAllCommandsAreEnteredThenProgramOutputsAsExpected()
         {
             using (var input  = new CustomStringReader(new[]
                                                            {
@@ -92,7 +92,7 @@ exit
         }
 
         [Fact]
-        public void WhenAllCommandsAreEnteredInRoxorModeThenExpectedAmountOfLinesAreDisplayed()
+        public void WhenAllCommandsAreEnteredInRoxorModeThenProgramOutputsAsExpected()
         {
             using (var input = new CustomStringReader(new[]
                                                            {
