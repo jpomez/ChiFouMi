@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChiFouMi.cs" />
     <Compile Include="Commands.cs">
       <SubType>Code</SubType>
     </Compile>

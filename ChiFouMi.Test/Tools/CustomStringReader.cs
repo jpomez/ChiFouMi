@@ -29,7 +29,7 @@ namespace ChiFouMi.Test.Tools
             this.position++;
             if (this.position >= this.strings.Count())
             {
-                this.position = 0;
+                this.position--;
             }
 
             return stringToReturn;

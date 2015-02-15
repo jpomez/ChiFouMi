@@ -60,6 +60,7 @@
     <Compile Include="RulesEngineTest.cs" />
     <Compile Include="Tools\CustomStringReader.cs" />
     <Compile Include="ProgramTest.cs" />
+    <Compile Include="ChiFouMiTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -11,7 +11,7 @@ namespace ChiFouMi
             Moves = Enum.GetValues(typeof(Move)).OfType<Move>().ToList();
         }
 
-        public static IEnumerable<Move> Moves { get; private set; }
+        public static IList<Move> Moves { get; private set; }
 
         public static string EnterCommand
         {
