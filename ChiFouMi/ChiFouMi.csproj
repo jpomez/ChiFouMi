@@ -45,7 +45,7 @@
     <Compile Include="Commands.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Move.cs">
+    <Compile Include="Sign.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Program.cs" />

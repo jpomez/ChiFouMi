@@ -1,6 +1,6 @@
 ﻿namespace ChiFouMi
 {
-    public enum Move
+    public enum Sign
     {
         Pierre = 1, 
 

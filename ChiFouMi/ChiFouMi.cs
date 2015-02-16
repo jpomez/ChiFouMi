@@ -11,11 +11,11 @@ namespace ChiFouMi
 
         private readonly Action<string> writeLine;
 
-        private readonly Func<bool, Move, Move, string> run; 
+        private readonly Func<bool, Sign, Sign, string> run; 
 
         private bool roxorMod;
 
-        public ChiFouMi(Func<string> readLine, Action<string> writeLine, Func<bool, Move, Move, string> run)
+        public ChiFouMi(Func<string> readLine, Action<string> writeLine, Func<bool, Sign, Sign, string> run)
         {
             this.readLine = readLine;
             this.writeLine = writeLine;
@@ -42,14 +42,14 @@ namespace ChiFouMi
             {
                 this.DisplayCommands();
 
-                Move userCommand;
-                if (!Enum.TryParse(this.readLine(), out userCommand) || !Enum.IsDefined(typeof(Move), userCommand))
+                Sign userCommand;
+                if (!Enum.TryParse(this.readLine(), out userCommand) || !Enum.IsDefined(typeof(Sign), userCommand))
                 {
                     this.writeLine("Je sais pas");
                     continue;
                 }
 
-                this.writeLine(this.run(this.roxorMod, userCommand, (Move)this.r.Next(1, 4)));
+                this.writeLine(this.run(this.roxorMod, userCommand, (Sign)this.r.Next(1, 4)));
             }
         }
 

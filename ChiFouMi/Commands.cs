@@ -8,10 +8,10 @@ namespace ChiFouMi
     {
         static Commands()
         {
-            Moves = Enum.GetValues(typeof(Move)).OfType<Move>().ToList();
+            Moves = Enum.GetValues(typeof(Sign)).OfType<Sign>().ToList();
         }
 
-        public static IList<Move> Moves { get; private set; }
+        public static IList<Sign> Moves { get; private set; }
 
         public static string Enter
         {

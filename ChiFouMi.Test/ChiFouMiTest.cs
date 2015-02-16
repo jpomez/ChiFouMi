@@ -11,7 +11,7 @@ namespace ChiFouMi.Test
 {
     public class ChiFouMiTest
     {
-        private readonly Func<bool, Move, Move, string> run;
+        private readonly Func<bool, Sign, Sign, string> run;
 
         public ChiFouMiTest()
         {

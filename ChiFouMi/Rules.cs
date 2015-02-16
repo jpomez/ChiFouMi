@@ -4,7 +4,7 @@ namespace ChiFouMi
 {
     public class RulesEngine
     {
-        public string Run(bool godMode, Move userMove, Move iaMove)
+        public string Run(bool godMode, Sign userSign, Sign iaSign)
         {
             var stringBuilder = new StringBuilder();
 
@@ -12,7 +12,7 @@ namespace ChiFouMi
 
             if (godMode)
             {
-                stringBuilder.AppendLine(string.Format("Tu es un roxor contre {0}", iaMove));
+                stringBuilder.AppendLine(string.Format("Tu es un roxor contre {0}", iaSign));
                 win = true;
             }
             else
@@ -20,15 +20,15 @@ namespace ChiFouMi
                 stringBuilder.AppendLine(
                    string.Format(
                        "{0} contre {1}!",
-                       userMove,
-                       iaMove));
+                       userSign,
+                       iaSign));
 
-                if (userMove == Move.Pierre && iaMove == Move.Feuille) win = false;
-                else if (userMove == Move.Pierre && iaMove == Move.Ciseaux) win = true;
-                else if (userMove == Move.Feuille && iaMove == Move.Pierre) win = true;
-                else if (userMove == Move.Feuille && iaMove == Move.Ciseaux) win = false;
-                else if (userMove == Move.Ciseaux && iaMove == Move.Pierre) win = false;
-                else if (userMove == Move.Ciseaux && iaMove == Move.Feuille) win = true;
+                if (userSign == Sign.Pierre && iaSign == Sign.Feuille) win = false;
+                else if (userSign == Sign.Pierre && iaSign == Sign.Ciseaux) win = true;
+                else if (userSign == Sign.Feuille && iaSign == Sign.Pierre) win = true;
+                else if (userSign == Sign.Feuille && iaSign == Sign.Ciseaux) win = false;
+                else if (userSign == Sign.Ciseaux && iaSign == Sign.Pierre) win = false;
+                else if (userSign == Sign.Ciseaux && iaSign == Sign.Feuille) win = true;
             }
 
             stringBuilder.AppendLine(win.HasValue ? win.Value ? Resource.Gagne : Resource.Perdu : Resource.Egalite);
