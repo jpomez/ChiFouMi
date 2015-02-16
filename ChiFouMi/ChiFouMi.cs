@@ -57,9 +57,9 @@ namespace ChiFouMi
         {
             this.writeLine(Resource.Intro);
 
-            for (var i = 0; i < Commands.Moves.Count; i++)
+            for (var i = 0; i < Commands.Signs.Count; i++)
             {
-                this.writeLine(string.Format("{0}- {1}", i + 1, Commands.Moves[i]));
+                this.writeLine(string.Format("{0}- {1}", i + 1, Commands.Signs[i]));
             }
         }
     }

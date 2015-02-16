@@ -13,9 +13,9 @@ namespace ChiFouMi.Test
         {
             var engine = new RulesEngine();
 
-            foreach (var command in Commands.Moves)
+            foreach (var command in Commands.Signs)
             {
-                foreach (var iaCommand in Commands.Moves)
+                foreach (var iaCommand in Commands.Signs)
                 {
                     Check.That(engine.Run(true, command, iaCommand)).IsEqualTo(string.Format("Tu es un roxor contre {0}{1}Gagne!{1}", iaCommand, Environment.NewLine));
                 }
@@ -27,7 +27,7 @@ namespace ChiFouMi.Test
         {
             var engine = new RulesEngine();
 
-            foreach (var command in Commands.Moves)
+            foreach (var command in Commands.Signs)
             {
                 Check.That(engine.Run(false, command, command)).IsEqualTo(string.Format("{0} contre {0}!{1}Egalite!{1}", command, Environment.NewLine));
             }
