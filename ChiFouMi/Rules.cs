@@ -1,9 +1,32 @@
-﻿using System.Text;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace ChiFouMi
 {
     public class RulesEngine
     {
+        private readonly IDictionary<Sign, IEnumerable<Sign>> nemesisDictionary;
+
+        public RulesEngine()
+        {
+            this.nemesisDictionary = new Dictionary<Sign, IEnumerable<Sign>>
+                                         {
+                                             {
+                                                 Sign.Pierre, 
+                                                 new List<Sign> { Sign.Feuille }
+                                             }, 
+                                             {
+                                                 Sign.Feuille, 
+                                                 new List<Sign> { Sign.Ciseaux }
+                                             }, 
+                                             {
+                                                 Sign.Ciseaux, 
+                                                 new List<Sign> { Sign.Pierre }
+                                             }
+                                         };
+        }
+
         public string Run(bool godMode, Sign userSign, Sign iaSign)
         {
             var stringBuilder = new StringBuilder();
@@ -17,18 +40,12 @@ namespace ChiFouMi
             }
             else
             {
-                stringBuilder.AppendLine(
-                   string.Format(
-                       "{0} contre {1}!",
-                       userSign,
-                       iaSign));
+                stringBuilder.AppendLine(string.Format("{0} contre {1}!", userSign, iaSign));
 
-                if (userSign == Sign.Pierre && iaSign == Sign.Feuille) win = false;
-                else if (userSign == Sign.Pierre && iaSign == Sign.Ciseaux) win = true;
-                else if (userSign == Sign.Feuille && iaSign == Sign.Pierre) win = true;
-                else if (userSign == Sign.Feuille && iaSign == Sign.Ciseaux) win = false;
-                else if (userSign == Sign.Ciseaux && iaSign == Sign.Pierre) win = false;
-                else if (userSign == Sign.Ciseaux && iaSign == Sign.Feuille) win = true;
+                if (userSign != iaSign)
+                {
+                    win = !this.nemesisDictionary[userSign].Contains(iaSign);
+                }
             }
 
             stringBuilder.AppendLine(win.HasValue ? win.Value ? Resource.Gagne : Resource.Perdu : Resource.Egalite);
