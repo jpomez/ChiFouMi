@@ -6,7 +6,7 @@ namespace ChiFouMi
     {
         public static void Main(string[] args)
         {
-            new ChiFouMi(Console.ReadLine, Console.WriteLine).Run(args);
+            new ChiFouMi(Console.ReadLine, Console.WriteLine, new RulesEngine().Run).Run(args);
         }
     }
 }

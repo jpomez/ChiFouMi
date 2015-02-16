@@ -20,13 +20,13 @@ namespace ChiFouMi.Test
 
                 using (var sr = new CustomStringReader(new[]
                                                            {
-                                                               string.Empty, 
+                                                               Commands.Enter, 
                                                                "1",
-                                                               string.Empty, 
+                                                               Commands.Enter, 
                                                                "2",
-                                                               string.Empty, 
+                                                               Commands.Enter, 
                                                                "3",
-                                                               "exit"
+                                                               Commands.Exit
                                                            }))
                 {
                     Console.SetIn(sr);

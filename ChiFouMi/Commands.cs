@@ -13,7 +13,7 @@ namespace ChiFouMi
 
         public static IList<Move> Moves { get; private set; }
 
-        public static string EnterCommand
+        public static string Enter
         {
             get
             {
@@ -21,7 +21,7 @@ namespace ChiFouMi
             }
         }
 
-        public static string ExitCommand
+        public static string Exit
         {
             get
             {

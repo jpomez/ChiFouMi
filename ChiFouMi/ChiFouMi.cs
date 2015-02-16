@@ -5,23 +5,24 @@ namespace ChiFouMi
 {
     public class ChiFouMi
     {
-        private readonly RulesEngine engine;
-
         private readonly Random r;
 
         private readonly Func<string> readLine;
 
         private readonly Action<string> writeLine;
 
+        private readonly Func<bool, Move, Move, string> run; 
+
         private bool roxorMod;
 
-        public ChiFouMi(Func<string> readLine, Action<string> writeLine)
+        public ChiFouMi(Func<string> readLine, Action<string> writeLine, Func<bool, Move, Move, string> run)
         {
             this.readLine = readLine;
             this.writeLine = writeLine;
 
-            this.engine = new RulesEngine();
             this.r = new Random(DateTime.Now.Millisecond);
+
+            this.run = run;
         }
 
         public void Run(string[] args)
@@ -48,7 +49,7 @@ namespace ChiFouMi
                     continue;
                 }
 
-                this.writeLine(this.engine.Run(this.roxorMod, userCommand, (Move)this.r.Next(1, 4)));
+                this.writeLine(this.run(this.roxorMod, userCommand, (Move)this.r.Next(1, 4)));
             }
         }
 

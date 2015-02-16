@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 
 using ChiFouMi.Test.Tools;
 
@@ -10,14 +11,21 @@ namespace ChiFouMi.Test
 {
     public class ChiFouMiTest
     {
+        private readonly Func<bool, Move, Move, string> run;
+
+        public ChiFouMiTest()
+        {
+            this.run = new RulesEngine().Run;
+        }
+
         [Fact]
         public void WhenOnlyExitIsEnteredThenRulesAreCorrectlyDisplayed()
         {
-            using (var input = new CustomStringReader(new[] { Commands.ExitCommand }))
+            using (var input = new CustomStringReader(new[] { Commands.Exit }))
             {
                 using (var output = new StringWriter())
                 {
-                    var game = new ChiFouMi(input.ReadLine, output.WriteLine);
+                    var game = new ChiFouMi(input.ReadLine, output.WriteLine, this.run);
                     game.Run(new[] { string.Empty });
                     Check.That(output.ToString()).IsEqualTo(@"Bienvenue dans mon chifumi, ici c'est un appli de ROXXXXXXXXXXXXXXXOOR!
 Taper sur la touche entrée pour commencer une partie, ou 'exit' pour quitter.
@@ -29,11 +37,11 @@ Taper sur la touche entrée pour commencer une partie, ou 'exit' pour quitter.
         [Fact]
         public void WhenOnlyEnterIsPressedInRoxorModeThenRulesAreCorrectlyDisplayed()
         {
-            using (var input = new CustomStringReader(new[] { Commands.ExitCommand }))
+            using (var input = new CustomStringReader(new[] { Commands.Exit }))
             {
                 using (var output = new StringWriter())
                 {
-                    var game = new ChiFouMi(input.ReadLine, output.WriteLine);
+                    var game = new ChiFouMi(input.ReadLine, output.WriteLine, this.run);
                     game.Run(new[] { "roxor" });
                     Check.That(output.ToString()).IsEqualTo(@"Bienvenue dans mon chifumi, ici c'est un appli de ROXXXXXXXXXXXXXXXOOR!
 Taper sur la touche entrée pour commencer une partie, ou 'exit' pour quitter.
@@ -47,18 +55,18 @@ Taper sur la touche entrée pour commencer une partie, ou 'exit' pour quitter.
         {
             using (var input  = new CustomStringReader(new[]
                                                            {
-                                                               Commands.EnterCommand, 
+                                                               Commands.Enter, 
                                                                "1",
-                                                               Commands.EnterCommand, 
+                                                               Commands.Enter, 
                                                                "2",
-                                                               Commands.EnterCommand, 
+                                                               Commands.Enter, 
                                                                "3",
-                                                               Commands.ExitCommand
+                                                               Commands.Exit
                                                            }))
             {
                 using (var output = new StringWriter())
                 {
-                    var game = new ChiFouMi(input.ReadLine, output.WriteLine);
+                    var game = new ChiFouMi(input.ReadLine, output.WriteLine, this.run);
                     game.Run(new[] { string.Empty });
 
                     var expectedOutputPart1 = @"Bienvenue dans mon chifumi, ici c'est un appli de ROXXXXXXXXXXXXXXXOOR!
@@ -96,18 +104,18 @@ exit
         {
             using (var input = new CustomStringReader(new[]
                                                            {
-                                                               Commands.EnterCommand, 
+                                                               Commands.Enter, 
                                                                "1",
-                                                               Commands.EnterCommand, 
+                                                               Commands.Enter, 
                                                                "2",
-                                                               Commands.EnterCommand, 
+                                                               Commands.Enter, 
                                                                "3",
-                                                               "exit"
+                                                               Commands.Exit
                                                            }))
             {
                 using (var output = new StringWriter())
                 {
-                    var game = new ChiFouMi(input.ReadLine, output.WriteLine);
+                    var game = new ChiFouMi(input.ReadLine, output.WriteLine, this.run);
                     game.Run(new[] { "roxor" });
 
                     var expectedOutputPart1 = @"Bienvenue dans mon chifumi, ici c'est un appli de ROXXXXXXXXXXXXXXXOOR!
@@ -139,11 +147,11 @@ exit
         [Fact]
         public void WhenIncorrectMoveIsEnteredThenProgramOuputsAsExpected()
         {
-            using (var input = new CustomStringReader(new[] { Commands.EnterCommand, "7", Commands.ExitCommand }))
+            using (var input = new CustomStringReader(new[] { Commands.Enter, "7", Commands.Exit }))
             {
                 using (var output = new StringWriter())
                 {
-                    var game = new ChiFouMi(input.ReadLine, output.WriteLine);
+                    var game = new ChiFouMi(input.ReadLine, output.WriteLine, this.run);
                     game.Run(new[] { string.Empty });
                     Check.That(output.ToString()).IsEqualTo(@"Bienvenue dans mon chifumi, ici c'est un appli de ROXXXXXXXXXXXXXXXOOR!
 Taper sur la touche entrée pour commencer une partie, ou 'exit' pour quitter.
