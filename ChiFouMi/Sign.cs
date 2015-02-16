@@ -6,6 +6,10 @@
 
         Feuille, 
 
-        Ciseaux
+        Ciseaux,
+
+        Lezard,
+
+        Spock
     }
 }

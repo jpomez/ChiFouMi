@@ -14,15 +14,23 @@ namespace ChiFouMi
                                          {
                                              {
                                                  Sign.Pierre, 
-                                                 new List<Sign> { Sign.Feuille }
+                                                 new List<Sign> { Sign.Feuille, Sign.Spock }
                                              }, 
                                              {
                                                  Sign.Feuille, 
-                                                 new List<Sign> { Sign.Ciseaux }
+                                                 new List<Sign> { Sign.Ciseaux, Sign.Lezard }
                                              }, 
                                              {
                                                  Sign.Ciseaux, 
-                                                 new List<Sign> { Sign.Pierre }
+                                                 new List<Sign> { Sign.Pierre, Sign.Spock }
+                                             },
+                                             {
+                                                 Sign.Lezard, 
+                                                 new List<Sign> { Sign.Pierre, Sign.Ciseaux }
+                                             },
+                                             {
+                                                 Sign.Spock, 
+                                                 new List<Sign> { Sign.Feuille, Sign.Lezard }
                                              }
                                          };
         }

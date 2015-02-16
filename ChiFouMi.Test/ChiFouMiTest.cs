@@ -61,6 +61,10 @@ Taper sur la touche entrée pour commencer une partie, ou 'exit' pour quitter.
                                                                "2",
                                                                Commands.Enter, 
                                                                "3",
+                                                               Commands.Enter, 
+                                                               "4",
+                                                               Commands.Enter, 
+                                                               "5",
                                                                Commands.Exit
                                                            }))
             {
@@ -75,6 +79,8 @@ Veuillez choisir un signe:
 1- Pierre
 2- Feuille
 3- Ciseaux
+4- Lezard
+5- Spock
 ";
 
                     var expectedOutputPart2 = @"Pierre contre";
@@ -87,6 +93,10 @@ Veuillez choisir un signe:
 2
 
 3
+
+4
+
+5
 exit
 ";
 
@@ -110,6 +120,10 @@ exit
                                                                "2",
                                                                Commands.Enter, 
                                                                "3",
+                                                               Commands.Enter, 
+                                                               "4",
+                                                               Commands.Enter, 
+                                                               "5",
                                                                Commands.Exit
                                                            }))
             {
@@ -124,6 +138,8 @@ Veuillez choisir un signe:
 1- Pierre
 2- Feuille
 3- Ciseaux
+4- Lezard
+5- Spock
 ";
 
                     var expectedOutputPart2 = @"Tu es un roxor contre";
@@ -134,6 +150,10 @@ Veuillez choisir un signe:
 2
 
 3
+
+4
+
+5
 exit
 ";
 
@@ -159,6 +179,8 @@ Veuillez choisir un signe:
 1- Pierre
 2- Feuille
 3- Ciseaux
+4- Lezard
+5- Spock
 Je sais pas
 ");
                 }
