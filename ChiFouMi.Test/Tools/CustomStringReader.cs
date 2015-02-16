@@ -11,12 +11,7 @@ namespace ChiFouMi.Test.Tools
 
         private int position;
 
-        public CustomStringReader(string s)
-            : base(s)
-        {
-        }
-
-        public CustomStringReader(IEnumerable<string> strings)
+        public CustomStringReader(IReadOnlyCollection<string> strings)
             : base(strings.First())
         {
             this.strings = strings;

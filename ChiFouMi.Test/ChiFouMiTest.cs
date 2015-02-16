@@ -73,21 +73,7 @@ Taper sur la touche entrée pour commencer une partie, ou 'exit' pour quitter.
                     var game = new ChiFouMi(input.ReadLine, output.WriteLine, this.run);
                     game.Play(new[] { string.Empty });
 
-                    var expectedOutputPart1 = @"Bienvenue dans mon chifumi, ici c'est un appli de ROXXXXXXXXXXXXXXXOOR!
-Taper sur la touche entrée pour commencer une partie, ou 'exit' pour quitter.
-Veuillez choisir un signe:
-1- Pierre
-2- Feuille
-3- Ciseaux
-4- Lezard
-5- Spock
-";
-
-                    var expectedOutputPart2 = @"Pierre contre";
-                    var expectedOutputPart3 = @"Feuille contre";
-                    var expectedOutputPart4 = @"Ciseaux contre";
-
-                    var expectedInput = @"
+                    Check.That(input.ToString()).IsEqualTo(@"
 1
 
 2
@@ -98,13 +84,21 @@ Veuillez choisir un signe:
 
 5
 exit
-";
-
-                    Check.That(input.ToString()).IsEqualTo(expectedInput);
-                    Check.That(output.ToString()).Contains(expectedOutputPart1);
-                    Check.That(output.ToString()).Contains(expectedOutputPart2);
-                    Check.That(output.ToString()).Contains(expectedOutputPart3);
-                    Check.That(output.ToString()).Contains(expectedOutputPart4);
+");
+                    Check.That(output.ToString()).Contains(@"Bienvenue dans mon chifumi, ici c'est un appli de ROXXXXXXXXXXXXXXXOOR!
+Taper sur la touche entrée pour commencer une partie, ou 'exit' pour quitter.
+Veuillez choisir un signe:
+1- Pierre
+2- Feuille
+3- Ciseaux
+4- Lezard
+5- Spock
+");
+                    Check.That(output.ToString()).Contains("Pierre contre");
+                    Check.That(output.ToString()).Contains("Feuille contre");
+                    Check.That(output.ToString()).Contains("Ciseaux contre");
+                    Check.That(output.ToString()).Contains("Lezard contre");
+                    Check.That(output.ToString()).Contains("Spock contre");
                 }
             }
         }
@@ -132,19 +126,7 @@ exit
                     var game = new ChiFouMi(input.ReadLine, output.WriteLine, this.run);
                     game.Play(new[] { "roxor" });
 
-                    var expectedOutputPart1 = @"Bienvenue dans mon chifumi, ici c'est un appli de ROXXXXXXXXXXXXXXXOOR!
-Taper sur la touche entrée pour commencer une partie, ou 'exit' pour quitter.
-Veuillez choisir un signe:
-1- Pierre
-2- Feuille
-3- Ciseaux
-4- Lezard
-5- Spock
-";
-
-                    var expectedOutputPart2 = @"Tu es un roxor contre";
-
-                    var expectedInput = @"
+                    Check.That(input.ToString()).IsEqualTo(@"
 1
 
 2
@@ -155,11 +137,17 @@ Veuillez choisir un signe:
 
 5
 exit
-";
-
-                    Check.That(input.ToString()).IsEqualTo(expectedInput);
-                    Check.That(output.ToString()).Contains(expectedOutputPart1);
-                    Check.That(output.ToString()).Contains(expectedOutputPart2);
+");
+                    Check.That(output.ToString()).Contains(@"Bienvenue dans mon chifumi, ici c'est un appli de ROXXXXXXXXXXXXXXXOOR!
+Taper sur la touche entrée pour commencer une partie, ou 'exit' pour quitter.
+Veuillez choisir un signe:
+1- Pierre
+2- Feuille
+3- Ciseaux
+4- Lezard
+5- Spock
+");
+                    Check.That(output.ToString()).Contains(@"Tu es un roxor contre");
                 }
             }
         }
