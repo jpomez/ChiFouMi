@@ -26,7 +26,7 @@ namespace ChiFouMi.Test
                 using (var output = new StringWriter())
                 {
                     var game = new ChiFouMi(input.ReadLine, output.WriteLine, this.run);
-                    game.Run(new[] { string.Empty });
+                    game.Play(new[] { string.Empty });
                     Check.That(output.ToString()).IsEqualTo(@"Bienvenue dans mon chifumi, ici c'est un appli de ROXXXXXXXXXXXXXXXOOR!
 Taper sur la touche entrée pour commencer une partie, ou 'exit' pour quitter.
 ");
@@ -42,7 +42,7 @@ Taper sur la touche entrée pour commencer une partie, ou 'exit' pour quitter.
                 using (var output = new StringWriter())
                 {
                     var game = new ChiFouMi(input.ReadLine, output.WriteLine, this.run);
-                    game.Run(new[] { "roxor" });
+                    game.Play(new[] { "roxor" });
                     Check.That(output.ToString()).IsEqualTo(@"Bienvenue dans mon chifumi, ici c'est un appli de ROXXXXXXXXXXXXXXXOOR!
 Taper sur la touche entrée pour commencer une partie, ou 'exit' pour quitter.
 ");
@@ -67,7 +67,7 @@ Taper sur la touche entrée pour commencer une partie, ou 'exit' pour quitter.
                 using (var output = new StringWriter())
                 {
                     var game = new ChiFouMi(input.ReadLine, output.WriteLine, this.run);
-                    game.Run(new[] { string.Empty });
+                    game.Play(new[] { string.Empty });
 
                     var expectedOutputPart1 = @"Bienvenue dans mon chifumi, ici c'est un appli de ROXXXXXXXXXXXXXXXOOR!
 Taper sur la touche entrée pour commencer une partie, ou 'exit' pour quitter.
@@ -116,7 +116,7 @@ exit
                 using (var output = new StringWriter())
                 {
                     var game = new ChiFouMi(input.ReadLine, output.WriteLine, this.run);
-                    game.Run(new[] { "roxor" });
+                    game.Play(new[] { "roxor" });
 
                     var expectedOutputPart1 = @"Bienvenue dans mon chifumi, ici c'est un appli de ROXXXXXXXXXXXXXXXOOR!
 Taper sur la touche entrée pour commencer une partie, ou 'exit' pour quitter.
@@ -152,7 +152,7 @@ exit
                 using (var output = new StringWriter())
                 {
                     var game = new ChiFouMi(input.ReadLine, output.WriteLine, this.run);
-                    game.Run(new[] { string.Empty });
+                    game.Play(new[] { string.Empty });
                     Check.That(output.ToString()).IsEqualTo(@"Bienvenue dans mon chifumi, ici c'est un appli de ROXXXXXXXXXXXXXXXOOR!
 Taper sur la touche entrée pour commencer une partie, ou 'exit' pour quitter.
 Veuillez choisir un signe:

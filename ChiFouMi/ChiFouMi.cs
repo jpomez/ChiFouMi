@@ -25,7 +25,7 @@ namespace ChiFouMi
             this.run = run;
         }
 
-        public void Run(string[] args)
+        public void Play(string[] args)
         {
             if (args.Any())
             {
