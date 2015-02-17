@@ -126,20 +126,11 @@
   <data name="Instructions" xml:space="preserve">
     <value>Taper sur la touche entrée pour commencer une partie, ou 'exit' pour quitter.</value>
   </data>
-  <data name="Ciseaux" xml:space="preserve">
-    <value>Ciseaux</value>
-  </data>
   <data name="EnterCommand" xml:space="preserve">
     <value />
   </data>
   <data name="ExitCommand" xml:space="preserve">
     <value>exit</value>
-  </data>
-  <data name="Feuille" xml:space="preserve">
-    <value>Feuille</value>
-  </data>
-  <data name="Pierre" xml:space="preserve">
-    <value>Pierre</value>
   </data>
   <data name="Roxor" xml:space="preserve">
     <value>roxor</value>
@@ -152,5 +143,8 @@
   </data>
   <data name="Egalite" xml:space="preserve">
     <value>Egalite!</value>
+  </data>
+  <data name="JeSaisPas" xml:space="preserve">
+    <value>Je sais pas</value>
   </data>
 </root>

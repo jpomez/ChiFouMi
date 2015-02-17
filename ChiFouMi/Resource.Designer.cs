@@ -61,15 +61,6 @@ namespace ChiFouMi {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ciseaux.
-        /// </summary>
-        internal static string Ciseaux {
-            get {
-                return ResourceManager.GetString("Ciseaux", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Egalite!.
         /// </summary>
         internal static string Egalite {
@@ -93,15 +84,6 @@ namespace ChiFouMi {
         internal static string ExitCommand {
             get {
                 return ResourceManager.GetString("ExitCommand", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Feuille.
-        /// </summary>
-        internal static string Feuille {
-            get {
-                return ResourceManager.GetString("Feuille", resourceCulture);
             }
         }
         
@@ -133,20 +115,20 @@ namespace ChiFouMi {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Je sais pas.
+        /// </summary>
+        internal static string JeSaisPas {
+            get {
+                return ResourceManager.GetString("JeSaisPas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Perdu!.
         /// </summary>
         internal static string Perdu {
             get {
                 return ResourceManager.GetString("Perdu", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Pierre.
-        /// </summary>
-        internal static string Pierre {
-            get {
-                return ResourceManager.GetString("Pierre", resourceCulture);
             }
         }
         
