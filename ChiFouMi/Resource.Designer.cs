@@ -115,15 +115,6 @@ namespace ChiFouMi {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Je sais pas.
-        /// </summary>
-        internal static string JeSaisPas {
-            get {
-                return ResourceManager.GetString("JeSaisPas", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Perdu!.
         /// </summary>
         internal static string Perdu {

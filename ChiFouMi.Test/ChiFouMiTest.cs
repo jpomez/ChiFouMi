@@ -169,7 +169,6 @@ Veuillez choisir un signe:
 3- Ciseaux
 4- Lezard
 5- Spock
-Je sais pas
 ");
                 }
             }

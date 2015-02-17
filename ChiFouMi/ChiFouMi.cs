@@ -45,7 +45,6 @@ namespace ChiFouMi
                 Sign userCommand;
                 if (!Enum.TryParse(this.readLine(), out userCommand) || !Enum.IsDefined(typeof(Sign), userCommand))
                 {
-                    this.writeLine(Resource.JeSaisPas);
                     continue;
                 }
 
