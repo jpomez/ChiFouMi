@@ -49,7 +49,7 @@ namespace ChiFouMi
                     continue;
                 }
 
-                this.writeLine(this.run(this.roxorMod, userCommand, (Sign)this.r.Next(1, 4)));
+                this.writeLine(this.run(this.roxorMod, userCommand, (Sign)this.r.Next(1, 6)));
             }
         }
 
