@@ -39,7 +39,7 @@ namespace ChiFouMi
         {
             var stringBuilder = new StringBuilder();
 
-            bool? win = null;
+            bool? win;
 
             if (godMode)
             {
@@ -49,16 +49,10 @@ namespace ChiFouMi
             else
             {
                 stringBuilder.AppendLine(string.Format("{0} contre {1}!", userSign, iaSign));
-
-                if (userSign != iaSign)
-                {
-                    win = !this.nemesisDictionary[userSign].Contains(iaSign);
-                }
+                win = userSign != iaSign ? !this.nemesisDictionary[userSign].Contains(iaSign) : (bool?)null;
             }
 
-            stringBuilder.AppendLine(win.HasValue ? win.Value ? Resource.Gagne : Resource.Perdu : Resource.Egalite);
-
-            return stringBuilder.ToString();
+            return stringBuilder.AppendLine(win.HasValue ? win.Value ? Resource.Gagne : Resource.Perdu : Resource.Egalite).ToString();
         }
     }
 }

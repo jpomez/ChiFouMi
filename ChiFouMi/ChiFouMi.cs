@@ -11,9 +11,7 @@ namespace ChiFouMi
 
         private readonly Action<string> writeLine;
 
-        private readonly Func<bool, Sign, Sign, string> run; 
-
-        private bool roxorMod;
+        private readonly Func<bool, Sign, Sign, string> run;
 
         public ChiFouMi(Func<string> readLine, Action<string> writeLine, Func<bool, Sign, Sign, string> run)
         {
@@ -27,20 +25,16 @@ namespace ChiFouMi
 
         public void Play(string[] args)
         {
-            if (args.Any())
+            this.writeLine(Resource.WelcomeMessage);
+
+            while (!this.readLine().StartsWith(Resource.Exit))
             {
-                if (args[0].Equals(Resource.Roxor))
+                this.writeLine(Resource.Intro);
+
+                for (var i = 1; i < 6; i++)
                 {
-                    this.roxorMod = true;
+                    this.writeLine(string.Format("{0}- {1}", i, (Sign)i));
                 }
-            }
-
-            this.writeLine(Resource.WelcomMessage);
-            this.writeLine(Resource.Instructions);
-
-            while (!this.readLine().StartsWith(Resource.ExitCommand))
-            {
-                this.DisplayCommands();
 
                 Sign userCommand;
                 if (!Enum.TryParse(this.readLine(), out userCommand) || !Enum.IsDefined(typeof(Sign), userCommand))
@@ -48,17 +42,7 @@ namespace ChiFouMi
                     continue;
                 }
 
-                this.writeLine(this.run(this.roxorMod, userCommand, (Sign)this.r.Next(1, 6)));
-            }
-        }
-
-        private void DisplayCommands()
-        {
-            this.writeLine(Resource.Intro);
-
-            for (var i = 0; i < Commands.Signs.Count; i++)
-            {
-                this.writeLine(string.Format("{0}- {1}", i + 1, Commands.Signs[i]));
+                this.writeLine(this.run(args.Any() && args[0].Equals(Resource.Roxor), userCommand, (Sign)this.r.Next(1, 6)));
             }
         }
     }

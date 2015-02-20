@@ -1,8 +1,6 @@
 ﻿using System;
 using System.IO;
 
-using ChiFouMi.Test.Tools;
-
 using NFluent;
 
 using Xunit;
@@ -21,7 +19,7 @@ namespace ChiFouMi.Test
         [Fact]
         public void WhenOnlyExitIsEnteredThenRulesAreCorrectlyDisplayed()
         {
-            using (var input = new CustomStringReader(new[] { Commands.Exit }))
+            using (var input = new CustomStringReader(new[] { "exit" }))
             {
                 using (var output = new StringWriter())
                 {
@@ -37,7 +35,7 @@ Taper sur la touche entrée pour commencer une partie, ou 'exit' pour quitter.
         [Fact]
         public void WhenOnlyEnterIsPressedInRoxorModeThenRulesAreCorrectlyDisplayed()
         {
-            using (var input = new CustomStringReader(new[] { Commands.Exit }))
+            using (var input = new CustomStringReader(new[] { "exit" }))
             {
                 using (var output = new StringWriter())
                 {
@@ -55,17 +53,17 @@ Taper sur la touche entrée pour commencer une partie, ou 'exit' pour quitter.
         {
             using (var input  = new CustomStringReader(new[]
                                                            {
-                                                               Commands.Enter, 
+                                                               string.Empty, 
                                                                "1",
-                                                               Commands.Enter, 
+                                                               string.Empty, 
                                                                "2",
-                                                               Commands.Enter, 
+                                                               string.Empty, 
                                                                "3",
-                                                               Commands.Enter, 
+                                                               string.Empty, 
                                                                "4",
-                                                               Commands.Enter, 
+                                                               string.Empty, 
                                                                "5",
-                                                               Commands.Exit
+                                                               "exit"
                                                            }))
             {
                 using (var output = new StringWriter())
@@ -108,17 +106,17 @@ Veuillez choisir un signe:
         {
             using (var input = new CustomStringReader(new[]
                                                            {
-                                                               Commands.Enter, 
+                                                               string.Empty, 
                                                                "1",
-                                                               Commands.Enter, 
+                                                               string.Empty, 
                                                                "2",
-                                                               Commands.Enter, 
+                                                               string.Empty, 
                                                                "3",
-                                                               Commands.Enter, 
+                                                               string.Empty, 
                                                                "4",
-                                                               Commands.Enter, 
+                                                               string.Empty, 
                                                                "5",
-                                                               Commands.Exit
+                                                               "exit"
                                                            }))
             {
                 using (var output = new StringWriter())
@@ -155,7 +153,7 @@ Veuillez choisir un signe:
         [Fact]
         public void WhenIncorrectMoveIsEnteredThenProgramOuputsAsExpected()
         {
-            using (var input = new CustomStringReader(new[] { Commands.Enter, "7", Commands.Exit }))
+            using (var input = new CustomStringReader(new[] { string.Empty, "7", "exit" }))
             {
                 using (var output = new StringWriter())
                 {

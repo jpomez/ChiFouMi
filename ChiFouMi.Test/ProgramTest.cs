@@ -1,8 +1,6 @@
 ﻿using System;
 using System.IO;
 
-using ChiFouMi.Test.Tools;
-
 using NFluent;
 
 using Xunit;
@@ -20,17 +18,17 @@ namespace ChiFouMi.Test
 
                 using (var sr = new CustomStringReader(new[]
                                                            {
-                                                               Commands.Enter, 
+                                                               string.Empty, 
                                                                "1",
-                                                               Commands.Enter, 
+                                                               string.Empty, 
                                                                "2",
-                                                               Commands.Enter, 
+                                                               string.Empty, 
                                                                "3",
-                                                               Commands.Enter,
+                                                               string.Empty,
                                                                "4",
-                                                               Commands.Enter,
+                                                               string.Empty,
                                                                "5",
-                                                               Commands.Exit
+                                                               "exit"
                                                            }))
                 {
                     Console.SetIn(sr);

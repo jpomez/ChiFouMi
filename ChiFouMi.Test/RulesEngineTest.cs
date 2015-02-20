@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 using NFluent;
 
@@ -8,19 +11,21 @@ namespace ChiFouMi.Test
 {
     public class RulesEngineTest
     {
+        private readonly IList<Sign> signs;
         private readonly RulesEngine engine;
 
         public RulesEngineTest()
         {
+            this.signs = Enum.GetValues(typeof(Sign)).OfType<Sign>().ToList();
             this.engine = new RulesEngine();
         }
 
         [Fact]
         public void WhenRoxorAgainstTheWorldThenRoxorWins()
         {
-            foreach (var command in Commands.Signs)
+            foreach (var command in this.signs)
             {
-                foreach (var iaCommand in Commands.Signs)
+                foreach (var iaCommand in this.signs)
                 {
                     Check.That(this.engine.Run(true, command, iaCommand)).IsEqualTo(string.Format("Tu es un roxor contre {0}{1}Gagne!{1}", iaCommand, Environment.NewLine));
                 }
@@ -30,7 +35,7 @@ namespace ChiFouMi.Test
         [Fact]
         public void WhenSameSignThenEquality()
         {
-            foreach (var command in Commands.Signs)
+            foreach (var command in this.signs)
             {
                 Check.That(this.engine.Run(false, command, command)).IsEqualTo(string.Format("{0} contre {0}!{1}Egalite!{1}", command, Environment.NewLine));
             }
